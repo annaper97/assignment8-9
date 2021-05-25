@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include 'head.html' %}
+     <title> cv - Anna Pertzovski </title>
+</head>
+<body onload="WelcomeText()">
+ <div id="myWelcome"> </div>
+<div class="name" style="font-size: 5vw"> Anna Pertzovski </div>
+{% if session['nicknameA'] %}
+   <h4> Hi {{ session['nicknameA'] }} , you logged-in</h4>
+{% endif %}
+<nav class="goTo" style="font-size: 2vw"> <h1> Go To: </h1>
+     <a href="#about"  >About Me </a> &nbsp;
+    <a href="#education">Education</a> &nbsp;
+    <a href="#workExperience">Work Experience </a>&nbsp;
+    <a href="#military">Military Service </a>&nbsp;
+    <a href="list.html" id="mylist" onclick="goTolist()" >My People list</a>
+</nav>
+<div class="contactDitails"> <h1> Contact Me: </h1>
+   <img src= "{{ url_for('static', filename='myPicture.jpeg') }}" alt="my picture" style="width: 50%">
+    <h3><button onclick="Buttonsanna()">  To My linkedin:</button> </h3>
+    <a  id="Anna_Pertzovski" href="https://www.linkedin.com/in/anna-pertzovski/"> </a>
+     <h3> <button onclick="Buttonsphone()"> To My Phone Number:</button> </h3>
+    <a  id="phone" href="tel:+0547252304">  </a>
+    <h3> <button onclick="Buttonsemail()"> To My Email:</button> </h3>
+    <a  id="myemail" href="mailto: pertzovski.anna@gmail.com" > </a>
+
+  </div>
+ {% block myDetails %}
+  <div class="content" >
+   <div id="about"> <h2> About:</h2> <br> In my 3RD year of Industrial Engineering and Management degree,<br> specializing in information system.<br>
+I have knowledge in several programing languages and motivation to learn and develop.
+</div>
+    <div id="education"> <h2> Education: </h2> <br> Industrial Engineering and Management, Ben Gurion University, (3rd year student)
+       2018- 2022 <br>
+      * Knowledge in JAVA, Object-oriented Programing, R in Rstudio, R Markdown, VBA, SQL. <br>
+      * Solid Works <br> * Experience in "office" programs word & excel.
+</div>
+      <div id="workExperience" > <h2> Work Experience: </h2> <br> Seller, fruit store (part time), Ariel
+2014- 2020 <br>
+ * Maintenance the store, money responsibility as cashier and working with people to maximize the profit.<br>* Managing 3 people staff, inventory management.
+</div>
+      <div id="military"> <h2> Military Service: </h2>  <br>
+      Munitions Course Commander & Guide
+2015- 2018<br>  *Class commander- conducting tutorials and personal responsibility for 30 soldiers.
+<br> * Course Sergeant- Management the logistic, schedules and guide a Class commander.
+<br> * Course commander -Personnel and soldiers management as a career solder.
+</div>
+ </div>
+
+{% include 'emailForm.html' %}
+{% endblock %}
+
+</body>
+</html>

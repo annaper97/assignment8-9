@@ -1,0 +1,16 @@
+{%  extends 'cv.html' %}
+{% block myDetails %}
+ <h3> Sorry you can see only Anna's hobbies</h3>
+ <h2>my hobbies:</h2>
+ <h3>
+ {% if hobbies %}
+     {% for hobby in hobbies %}
+     <ul>
+         <li>{{ hobby | upper }} </li>
+         </ul>
+         {% endfor %}
+ {% else  %}
+ <h3> Anna does not have time for hobbies :( </h3>
+ {% endif %}
+ </h3>
+{% endblock %}

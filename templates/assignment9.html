@@ -1,0 +1,28 @@
+{% extends 'cv.html' %}
+{% block myDetails %}
+
+
+    <form  method="get"  id="searchForm" action=" ">
+          <label for="search" ><b>please enter first name or last name or email:</b></label><br>
+          <input type="search"   name="search"> <br>
+          <input type="submit" ><br>
+    </form>
+        <h4>The result:</h4>
+    {% if result %}
+        <div>{{ result }}</div>
+    {%  else %}
+        <div>{{ users_list }}</div>
+    {% endif %}
+
+    {% if  session['nicknameA'] %}
+        <h4> Hi {{ session['nicknameA'] }} , you logged-in</h4>
+    {% else %}
+         <form action="" method="post" >
+              <label for="nickname" > <b> please enter a nickname to registerate:</b></label><br>
+              <input name ="nicknameA" id="nicknameA" type="text"> <br>
+              <input type="submit" ><br>
+         </form>
+    {% endif %}
+
+     <a href="{{ url_for('logout') }}" >logout</a>
+{% endblock %}
